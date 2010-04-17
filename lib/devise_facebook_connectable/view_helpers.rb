@@ -138,7 +138,7 @@ module Devise #:nodoc:
           scope = args.detect { |arg| arg.is_a?(Symbol) } || options[:scope] || ::Devise.default_scope
           mapping = ::Devise.mappings[scope]
 
-          if mapping.for.include?(:facebook_connectable)
+          if mapping.strategies.include?(:facebook_connectable)
             scope
           else
             error_message =
